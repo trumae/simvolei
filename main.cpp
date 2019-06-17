@@ -8,11 +8,14 @@
 
 #include "progressbar.hpp"
 
-int gogame(double pt1, std::mt19937 &g) {
-    int sc1 =0 , sc2 = 0;
+inline double myrand(std::mt19937 &g) {
+        return 1.0 * g() / std::numeric_limits<uint>::max() ;
+}
 
-    while(true) {
-        double v = 1.0 * g() / std::numeric_limits<uint>::max() ;
+int goset(double pt1, std::mt19937 &g) {
+    int sc1 =0 , sc2 = 0;
+    while (true) {
+        double v = myrand(g) ;
 
         if (v < pt1) {
             sc1 ++;
@@ -20,8 +23,47 @@ int gogame(double pt1, std::mt19937 &g) {
             sc2 ++;
         }
 
+        ///std::cout << sc1 << "x" <<sc2 << std::endl;
         if (sc1 - sc2 >1 && sc1 > 24) return 1;
         if (sc2 - sc1 >1 && sc2 > 24) return 2;
+    }
+}
+
+int gotiebreak(double pt1, std::mt19937 &g) {
+    int sc1 =0 , sc2 = 0;
+    while (true) {
+        double v = myrand(g);
+
+        if (v < pt1) {
+            sc1 ++;
+        } else {
+            sc2 ++;
+        }
+
+        ///std::cout << "t " << sc1 << "x" <<sc2 << std::endl;
+        if (sc1 - sc2 >1 && sc1 > 14) return 1;
+        if (sc2 - sc1 >1 && sc2 > 14) return 2;
+    }
+}
+
+
+int gogame(double pt1, std::mt19937 &g) {
+    int set1=0, set2 = 0;
+
+    while(true) {
+        if (set1 == 2 && set2 == 2) return gotiebreak(pt1, g);
+
+        int res = goset(pt1,g);
+        if (res == 1) {
+            set1++;
+        } else {
+            set2++;
+        }
+
+        ///std::cout << "*****" <<set1 << "x" <<set2 << std::endl;
+        
+        if (set1 == 3) return 1;
+        if (set2 == 3) return 2;
     }
 
     return 0;
@@ -42,14 +84,7 @@ int main(int argc, char **argv) {
     // obtain a seed from the system clock:
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::mt19937 generator(seed);  // mt19937 is a standard mersenne_twister_engine
-
-
-    /*
-     * Define a progress bar that has a total of 100,
-     * a width of 70, shows `=` to indicate completion
-     * and a blank space for incomplete
-     */
-    ProgressBar progressBar(total, 70, '#', '-');
+    ProgressBar progressBar(total, 50, '#', '-');
 
     for (int i = 0; i < total; i++) {
         ++progressBar; // record the tick
