@@ -12,7 +12,7 @@ In a talk with my oldest son, I wanted to show how much the details are importan
 
 # How it works
 
-Based on probability of each team do one point, an entire game was simulated *n* times.
+Based on probability of each team do only one point, an entire game was simulated *n* times.
 
 # Examples
 
