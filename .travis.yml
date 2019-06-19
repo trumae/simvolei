@@ -1,22 +1,14 @@
 language: cpp
 dist: trusty
 compiler:
-- gcc 
+  - gcc 
+os: linux
 
 before_script:
   - mkdir build
   - cd build
-
-matrix:
-- os: linux
-    env:
-      - TEST="BuildTest"
-    addons:
-      apt:
-        packages:
-          - gcc
-          - g++
-    script:
-      - cmake ..
-      - make
-      - make check
+  
+script:
+  - cmake ..
+  - make
+  - make check
