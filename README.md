@@ -16,21 +16,21 @@ Based on probability of each team do only one point, an entire game was simulate
 
 # Examples
 
-## 50% team1 - 50% team2
+## 50% team1 / 50% team2
 ```
 ➜  build git:(master) ✗ ./simvolei 0.5 100000
 [##################################################] 100% 0.818s
 Done! 49817  50183
 ```
 
-## 51% team1 - 49% team2
+## 51% team1 / 49% team2
 ```
 ➜  build git:(master) ✗ ./simvolei 0.51 100000
 [##################################################] 100% 0.82s
 Done! 60127  39873
 ```
 
-## 55% team1 - 45% team2
+## 55% team1 / 45% team2
 ```
 ➜  build git:(master) ✗ ./simvolei 0.55 100000
 [##################################################] 100% 0.744s
