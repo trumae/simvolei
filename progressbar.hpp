@@ -49,5 +49,5 @@ public:
     }
 };
 
-#endif //PROGRESSBAR_PROGRESSBAR_HPP
+#endif 
 
