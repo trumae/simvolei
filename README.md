@@ -3,11 +3,11 @@
 
 # Motivation
 
-In a talk with my oldest son, I wanted to show how much the details are important in the volleyball games. Then i made an little test using a simple simulation. 
+In a talk with my oldest son, I wanted to show how much the details are important in the volleyball games. Then i made an little test using a simple monte carlo simulation. 
 
 # Features
 
-- Simple Monte-Carlo simulation
+- Monte-Carlo simulation
 - Based only on single point probability
 
 # How it works
