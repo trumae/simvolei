@@ -1,5 +1,5 @@
 set title "Simulacao volei"
-set xlabel "Chance ponto time 1"
+set xlabel "Chance ponto time 1 (%)"
 set ylabel "Vitorias em 10000 partidas"
 set grid
 
